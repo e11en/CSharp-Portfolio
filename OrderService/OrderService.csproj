@@ -68,6 +68,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Entity" />
@@ -94,6 +95,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Compile Include="GenericTrackingBehavior.cs" />
+    <Compile Include="GenericTrackingExtensionElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

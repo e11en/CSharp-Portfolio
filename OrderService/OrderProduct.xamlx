@@ -52,6 +52,7 @@
         <p1:AssemblyReference>System.Xml</p1:AssemblyReference>
         <p1:AssemblyReference>System.Xml.Linq</p1:AssemblyReference>
         <p1:AssemblyReference>Data</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Configuration</p1:AssemblyReference>
         <p1:AssemblyReference>mscorlib</p1:AssemblyReference>
         <p1:AssemblyReference>OrderService</p1:AssemblyReference>
       </sco:Collection>
@@ -105,6 +106,7 @@
           </p1:InArgument>
         </p1:Assign.Value>
       </p1:Assign>
+      <p1:Delay Duration="00:00:10" sap2010:WorkflowViewState.IdRef="Delay_2" />
       <SendReply Request="{x:Reference __ReferenceID0}" DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_1">
         <SendReply.CorrelationInitializers>
           <QueryCorrelationInitializer>
@@ -209,15 +211,16 @@
         </SendMessageContent>
       </SendReply>
     </p1:Sequence>
-    <sads:DebugSymbol.Symbol>dzdFOlxHaXRcQ1NoYXJwLVBvcnRmb2xpb1xPcmRlclNlcnZpY2VcT3JkZXJQcm9kdWN0LnhhbWx4HRAD1QERAQE/BYIBEwEzgwEF0wETAQJAB1MRAUtUB18TAURgB2sTAT1sB4EBEwE0iAEHqAERASepAQfLAQ8BC8wBB9IBEwEDUA1QVwFNRRFJJAFMXA1cZwFIVw1XWgFFaA1obgFBYw1jZQE+fg1+TwE4cRFxYwE1kwENkwFfAS6lAQ2lAWsBKZoBEZ4BJAEorAENrAFsAQywAQu7ARcBHL4BC8kBFwERzwENzwFPAQS4ARG4AXMBIrMBEbMBaQEdxgERxgFzARfBARHBAWkBEg==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dzdFOlxHaXRcQ1NoYXJwLVBvcnRmb2xpb1xPcmRlclNlcnZpY2VcT3JkZXJQcm9kdWN0LnhhbWx4HxAD1wERAQFABYQBEwEzhQEF1QETAQJBB1QRAU1VB2ATAUZhB2wTAT9tB21RAT1uB4MBEwE0igEHqgERASerAQfNAQ8BC84BB9QBEwEDUQ1RVwFPRhFKJAFOXQ1dZwFKWA1YWgFHaQ1pbgFDZA1kZQFAbRptJAE+gAENgAFPAThzEXNjATWVAQ2VAV8BLqcBDacBawEpnAERoAEkASiuAQ2uAWwBDLIBC70BFwEcwAELywEXARHRAQ3RAU8BBLoBEboBcwEitQERtQFpAR3IARHIAXMBF8MBEcMBaQES</sads:DebugSymbol.Symbol>
   </p1:Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="Receive_1" sap:VirtualizedContainerService.HintSize="255,86" />
       <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="255,62" />
       <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="255,62" />
+      <sap2010:ViewStateData Id="Delay_2" sap:VirtualizedContainerService.HintSize="255,22" />
       <sap2010:ViewStateData Id="SendReply_1" sap:VirtualizedContainerService.HintSize="255,86" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="531,540">
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="531,602">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -236,14 +239,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="553,1292">
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="553,1354">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="WorkflowService_1" sap:VirtualizedContainerService.HintSize="583,1362" />
+      <sap2010:ViewStateData Id="WorkflowService_1" sap:VirtualizedContainerService.HintSize="583,1424" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </WorkflowService>

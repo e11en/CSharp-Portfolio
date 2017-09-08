@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using Data;
@@ -19,10 +20,6 @@ namespace WorkflowClient
             {
                 run = Run();
             }
-            
-
-            Console.WriteLine("Press key to exit");
-            Console.ReadKey();
         }
 
         private static bool Run()
