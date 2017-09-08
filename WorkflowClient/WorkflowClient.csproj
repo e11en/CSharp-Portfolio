@@ -66,6 +66,9 @@
     <None Include="Service References\OrderProductServiceReference\OrderProduct2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\OrderProductServiceReference\WorkflowClient.OrderProductServiceReference.ApproveOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\OrderProductServiceReference\WorkflowClient.OrderProductServiceReference.SubmitOrderResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

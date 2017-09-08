@@ -46,6 +46,7 @@
     <Compile Include="Enum\OrderStatus.cs" />
     <Compile Include="Interface\IPerson.cs" />
     <Compile Include="Manager.cs" />
+    <Compile Include="ManagerResponse.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,6 +11,7 @@
  xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
  xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
  xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ssx="clr-namespace:System.ServiceModel.XamlIntegration;assembly=System.ServiceModel"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
     <p1:TextExpression.Namespaces>
@@ -25,6 +26,13 @@
     </p1:TextExpression.Namespaces>
     <p1:TextExpression.References>
       <sco:Collection x:TypeArguments="p1:AssemblyReference" x:Name="__ReferenceID5">
+        <p1:AssemblyReference>Microsoft.AI.Agent.Intercept</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.DependencyCollector</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.PerfCounterCollector</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.ServerTelemetryChannel</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.Web</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.WindowsServer</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.ApplicationInsights</p1:AssemblyReference>
         <p1:AssemblyReference>Microsoft.CSharp</p1:AssemblyReference>
         <p1:AssemblyReference>System.Web.DynamicData</p1:AssemblyReference>
         <p1:AssemblyReference>System.Drawing</p1:AssemblyReference>
@@ -43,13 +51,6 @@
         <p1:AssemblyReference>System.Xaml</p1:AssemblyReference>
         <p1:AssemblyReference>System.Xml</p1:AssemblyReference>
         <p1:AssemblyReference>System.Xml.Linq</p1:AssemblyReference>
-        <p1:AssemblyReference>Microsoft.ApplicationInsights</p1:AssemblyReference>
-        <p1:AssemblyReference>Microsoft.AI.Agent.Intercept</p1:AssemblyReference>
-        <p1:AssemblyReference>Microsoft.AI.DependencyCollector</p1:AssemblyReference>
-        <p1:AssemblyReference>Microsoft.AI.PerfCounterCollector</p1:AssemblyReference>
-        <p1:AssemblyReference>Microsoft.AI.ServerTelemetryChannel</p1:AssemblyReference>
-        <p1:AssemblyReference>Microsoft.AI.WindowsServer</p1:AssemblyReference>
-        <p1:AssemblyReference>Microsoft.AI.Web</p1:AssemblyReference>
         <p1:AssemblyReference>Data</p1:AssemblyReference>
         <p1:AssemblyReference>mscorlib</p1:AssemblyReference>
         <p1:AssemblyReference>OrderService</p1:AssemblyReference>
@@ -80,7 +81,7 @@
           </p1:OutArgument>
         </ReceiveMessageContent>
       </Receive>
-      <p1:Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+      <p1:Assign DisplayName="SetOrderId" sap2010:WorkflowViewState.IdRef="Assign_2">
         <p1:Assign.To>
           <p1:OutArgument x:TypeArguments="x:Int32">
             <mca:CSharpReference x:TypeArguments="x:Int32">order.Id</mca:CSharpReference>
@@ -105,6 +106,21 @@
         </p1:Assign.Value>
       </p1:Assign>
       <SendReply Request="{x:Reference __ReferenceID0}" DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_1">
+        <SendReply.CorrelationInitializers>
+          <QueryCorrelationInitializer>
+            <QueryCorrelationInitializer.CorrelationHandle>
+              <p1:InArgument x:TypeArguments="CorrelationHandle">
+                <mca:CSharpValue x:TypeArguments="CorrelationHandle">orderHandle</mca:CSharpValue>
+              </p1:InArgument>
+            </QueryCorrelationInitializer.CorrelationHandle>
+            <XPathMessageQuery x:Key="orderId">
+              <XPathMessageQuery.Namespaces>
+                <ssx:XPathMessageContextMarkup>
+                  <x:String x:Key="xg0">http://schemas.datacontract.org/2004/07/Data</x:String>
+                </ssx:XPathMessageContextMarkup>
+              </XPathMessageQuery.Namespaces>sm:body()/xg0:Order/xg0:Id</XPathMessageQuery>
+          </QueryCorrelationInitializer>
+        </SendReply.CorrelationInitializers>
         <SendMessageContent>
           <p1:InArgument x:TypeArguments="d:Order">
             <mca:CSharpValue x:TypeArguments="d:Order">order</mca:CSharpValue>
@@ -115,9 +131,22 @@
     <p1:Sequence DisplayName="ApproveOrder" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <p1:Sequence.Variables>
         <x:Reference>__ReferenceID2</x:Reference>
-        <p1:Variable x:TypeArguments="x:Boolean" Name="approve" />
+        <p1:Variable x:TypeArguments="d:ManagerResponse" Name="managerResponse" />
       </p1:Sequence.Variables>
       <Receive x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="Receive_2" OperationName="ApproveOrder" ServiceContractName="p:IService">
+        <Receive.CorrelatesOn>
+          <XPathMessageQuery x:Key="orderId">
+            <XPathMessageQuery.Namespaces>
+              <ssx:XPathMessageContextMarkup>
+                <x:String x:Key="xg0">http://schemas.datacontract.org/2004/07/Data</x:String>
+              </ssx:XPathMessageContextMarkup>
+            </XPathMessageQuery.Namespaces>sm:body()/xg0:ManagerResponse/xg0:ItemIdentifier</XPathMessageQuery>
+        </Receive.CorrelatesOn>
+        <Receive.CorrelatesWith>
+          <p1:InArgument x:TypeArguments="CorrelationHandle">
+            <mca:CSharpValue x:TypeArguments="CorrelationHandle">orderHandle</mca:CSharpValue>
+          </p1:InArgument>
+        </Receive.CorrelatesWith>
         <Receive.CorrelationInitializers>
           <RequestReplyCorrelationInitializer>
             <RequestReplyCorrelationInitializer.CorrelationHandle>
@@ -131,16 +160,16 @@
             </RequestReplyCorrelationInitializer.CorrelationHandle>
           </RequestReplyCorrelationInitializer>
         </Receive.CorrelationInitializers>
-        <ReceiveMessageContent DeclaredMessageType="x:Boolean">
-          <p1:OutArgument x:TypeArguments="x:Boolean">
-            <mca:CSharpReference x:TypeArguments="x:Boolean">approve</mca:CSharpReference>
+        <ReceiveMessageContent DeclaredMessageType="d:ManagerResponse">
+          <p1:OutArgument x:TypeArguments="d:ManagerResponse">
+            <mca:CSharpReference x:TypeArguments="d:ManagerResponse">managerResponse</mca:CSharpReference>
           </p1:OutArgument>
         </ReceiveMessageContent>
       </Receive>
       <p1:If sap2010:WorkflowViewState.IdRef="If_1">
         <p1:If.Condition>
           <p1:InArgument x:TypeArguments="x:Boolean">
-            <mca:CSharpValue x:TypeArguments="x:Boolean">approve == true</mca:CSharpValue>
+            <mca:CSharpValue x:TypeArguments="x:Boolean">managerResponse.Approved == true</mca:CSharpValue>
           </p1:InArgument>
         </p1:If.Condition>
         <p1:If.Then>
@@ -173,14 +202,14 @@
         </p1:If.Else>
       </p1:If>
       <SendReply Request="{x:Reference __ReferenceID1}" DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_2">
-        <SendMessageContent>
+        <SendMessageContent DeclaredMessageType="d:Order">
           <p1:InArgument x:TypeArguments="d:Order">
             <mca:CSharpValue x:TypeArguments="d:Order">order</mca:CSharpValue>
           </p1:InArgument>
         </SendMessageContent>
       </SendReply>
     </p1:Sequence>
-    <sads:DebugSymbol.Symbol>d0dFOlxHaXRcQ1NoYXJwLVBvcnRmb2xpb1xDU2hhcnBQb3J0Zm9saW9cT3JkZXJTZXJ2aWNlXE9yZGVyUHJvZHVjdC54YW1seBsPA7gBEQEBPgVyEwEucwW2ARMBAj8HUhEBQ1MHXhMBPF8HahMBNWsHcRMBL3gHiwERASeMAQeuAQ8BC68BB7UBEwEDTw1PVwFFRBFIJAFEWw1bZwFAVg1WWgE9Zw1nbgE5Yg1iZQE2bg1uTwEwiAENiAFbASl9EYEBJAEojwENjwFbAQyTAQueARcBHKEBC6wBFwERsgENsgFPAQSbARGbAXMBIpYBEZYBaQEdqQERqQFzARekARGkAWkBEg==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dzdFOlxHaXRcQ1NoYXJwLVBvcnRmb2xpb1xPcmRlclNlcnZpY2VcT3JkZXJQcm9kdWN0LnhhbWx4HRAD1QERAQE/BYIBEwEzgwEF0wETAQJAB1MRAUtUB18TAURgB2sTAT1sB4EBEwE0iAEHqAERASepAQfLAQ8BC8wBB9IBEwEDUA1QVwFNRRFJJAFMXA1cZwFIVw1XWgFFaA1obgFBYw1jZQE+fg1+TwE4cRFxYwE1kwENkwFfAS6lAQ2lAWsBKZoBEZ4BJAEorAENrAFsAQywAQu7ARcBHL4BC8kBFwERzwENzwFPAQS4ARG4AXMBIrMBEbMBaQEdxgERxgFzARfBARHBAWkBEg==</sads:DebugSymbol.Symbol>
   </p1:Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -214,7 +243,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="WorkflowService_1" sap:VirtualizedContainerService.HintSize="329,1110" />
+      <sap2010:ViewStateData Id="WorkflowService_1" sap:VirtualizedContainerService.HintSize="583,1362" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </WorkflowService>

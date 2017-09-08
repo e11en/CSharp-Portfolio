@@ -4,6 +4,7 @@
   <xs:complexType name="Order">
     <xs:sequence>
       <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Data.Enum" minOccurs="0" name="Status" type="q1:OrderStatus" />
     </xs:sequence>
@@ -42,4 +43,36 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ManagerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Approved" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ItemIdentifier" type="xs:int" />
+      <xs:element minOccurs="0" name="Manager" nillable="true" type="tns:Manager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ManagerResponse" nillable="true" type="tns:ManagerResponse" />
+  <xs:complexType name="Manager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Employee">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Employees" nillable="true" type="tns:ArrayOfEmployee" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Manager" nillable="true" type="tns:Manager" />
+  <xs:complexType name="Employee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Manager" nillable="true" type="tns:Manager" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="ArrayOfEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
 </xs:schema>

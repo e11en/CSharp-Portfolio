@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ae20809d-84f4-4387-bafa-e41c6172c712" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="602eb91a-22cb-478a-bb3d-b2c81ab10bfd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:52296/OrderProduct.xamlx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="OrderProduct.wsdl" MetadataType="Wsdl" ID="97e1ddfb-ebb8-43e3-95fb-5f8dd6b18742" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?wsdl" />
-    <MetadataFile FileName="OrderProduct.xsd" MetadataType="Schema" ID="05681698-6159-4980-9df8-efd7a17510b8" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?xsd=xsd1" />
-    <MetadataFile FileName="OrderProduct1.xsd" MetadataType="Schema" ID="50e32122-9df0-4997-9875-3858e04424ae" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?xsd=xsd2" />
-    <MetadataFile FileName="OrderProduct2.xsd" MetadataType="Schema" ID="30c577ce-5d37-4ba5-9620-e044de9076b9" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?xsd=xsd0" />
-    <MetadataFile FileName="OrderProduct.disco" MetadataType="Disco" ID="10b390f8-2ed0-4f99-9b49-ec4ca91f63e3" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?disco" />
+    <MetadataFile FileName="OrderProduct.wsdl" MetadataType="Wsdl" ID="a9057549-92d7-4dc3-9d0e-c6e2eb6f4790" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?wsdl" />
+    <MetadataFile FileName="OrderProduct.xsd" MetadataType="Schema" ID="c0ceda07-445b-445a-bed5-b53e2d9ea5f9" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?xsd=xsd1" />
+    <MetadataFile FileName="OrderProduct1.xsd" MetadataType="Schema" ID="a14e2660-1326-4e74-8da7-0d5208186efc" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?xsd=xsd2" />
+    <MetadataFile FileName="OrderProduct2.xsd" MetadataType="Schema" ID="2c5d8210-3668-4af9-b132-dc6cdf1bb253" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?xsd=xsd0" />
+    <MetadataFile FileName="OrderProduct.disco" MetadataType="Disco" ID="9ad6e2aa-fc82-4675-8fb9-021ace53479a" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

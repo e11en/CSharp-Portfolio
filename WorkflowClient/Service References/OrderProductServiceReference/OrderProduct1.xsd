@@ -5,6 +5,7 @@
       <xs:enumeration value="Ordered" />
       <xs:enumeration value="Picked" />
       <xs:enumeration value="Approved" />
+      <xs:enumeration value="Declined" />
       <xs:enumeration value="Send" />
     </xs:restriction>
   </xs:simpleType>
