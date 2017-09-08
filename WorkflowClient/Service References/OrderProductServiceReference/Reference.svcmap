@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ae20809d-84f4-4387-bafa-e41c6172c712" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52296/OrderProduct.xamlx" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OrderProduct.wsdl" MetadataType="Wsdl" ID="97e1ddfb-ebb8-43e3-95fb-5f8dd6b18742" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?wsdl" />
+    <MetadataFile FileName="OrderProduct.xsd" MetadataType="Schema" ID="05681698-6159-4980-9df8-efd7a17510b8" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?xsd=xsd1" />
+    <MetadataFile FileName="OrderProduct1.xsd" MetadataType="Schema" ID="50e32122-9df0-4997-9875-3858e04424ae" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?xsd=xsd2" />
+    <MetadataFile FileName="OrderProduct2.xsd" MetadataType="Schema" ID="30c577ce-5d37-4ba5-9620-e044de9076b9" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?xsd=xsd0" />
+    <MetadataFile FileName="OrderProduct.disco" MetadataType="Disco" ID="10b390f8-2ed0-4f99-9b49-ec4ca91f63e3" SourceId="1" SourceUrl="http://localhost:52296/OrderProduct.xamlx?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

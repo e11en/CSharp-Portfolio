@@ -1,0 +1,220 @@
+﻿<WorkflowService mc:Ignorable="sap sap2010 sads" p1:TextExpression.Namespaces="{x:Reference __ReferenceID4}" p1:TextExpression.References="{x:Reference __ReferenceID5}" ConfigurationName="OrderProduct" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="WorkflowService_1" Name="OrderProduct"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/servicemodel"
+ xmlns:d="clr-namespace:Data;assembly=Data"
+ xmlns:de="clr-namespace:Data.Enum;assembly=Data"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:p="http://tempuri.org/"
+ xmlns:p1="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <p1:TextExpression.Namespaces>
+      <sco:Collection x:TypeArguments="x:String" x:Name="__ReferenceID4">
+        <x:String>System</x:String>
+        <x:String>System.Collections.Generic</x:String>
+        <x:String>System.Data</x:String>
+        <x:String>System.Linq</x:String>
+        <x:String>System.Text</x:String>
+        <x:String>Data</x:String>
+      </sco:Collection>
+    </p1:TextExpression.Namespaces>
+    <p1:TextExpression.References>
+      <sco:Collection x:TypeArguments="p1:AssemblyReference" x:Name="__ReferenceID5">
+        <p1:AssemblyReference>Microsoft.CSharp</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web.DynamicData</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Drawing</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web.Entity</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web.ApplicationServices</p1:AssemblyReference>
+        <p1:AssemblyReference>System</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Activities</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Core</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Data</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Data.Entity</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Runtime.Serialization</p1:AssemblyReference>
+        <p1:AssemblyReference>System.ServiceModel</p1:AssemblyReference>
+        <p1:AssemblyReference>System.ServiceModel.Activities</p1:AssemblyReference>
+        <p1:AssemblyReference>System.ServiceModel.Channels</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Xaml</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Xml</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Xml.Linq</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.ApplicationInsights</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.Agent.Intercept</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.DependencyCollector</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.PerfCounterCollector</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.ServerTelemetryChannel</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.WindowsServer</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.AI.Web</p1:AssemblyReference>
+        <p1:AssemblyReference>Data</p1:AssemblyReference>
+        <p1:AssemblyReference>mscorlib</p1:AssemblyReference>
+        <p1:AssemblyReference>OrderService</p1:AssemblyReference>
+      </sco:Collection>
+    </p1:TextExpression.References>
+    <p1:Sequence.Variables>
+      <p1:Variable x:TypeArguments="d:Order" Name="order" />
+      <x:Reference>__ReferenceID3</x:Reference>
+    </p1:Sequence.Variables>
+    <p1:Sequence DisplayName="RecieveOrder" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Receive x:Name="__ReferenceID0" CanCreateInstance="True" sap2010:WorkflowViewState.IdRef="Receive_1" OperationName="SubmitOrder" ServiceContractName="p:IService">
+        <Receive.CorrelationInitializers>
+          <RequestReplyCorrelationInitializer>
+            <RequestReplyCorrelationInitializer.CorrelationHandle>
+              <p1:InArgument x:TypeArguments="CorrelationHandle">
+                <p1:VariableValue x:TypeArguments="CorrelationHandle">
+                  <p1:VariableValue.Variable>
+                    <p1:Variable x:TypeArguments="CorrelationHandle" x:Name="__ReferenceID3" Name="orderHandle" />
+                  </p1:VariableValue.Variable>
+                </p1:VariableValue>
+              </p1:InArgument>
+            </RequestReplyCorrelationInitializer.CorrelationHandle>
+          </RequestReplyCorrelationInitializer>
+        </Receive.CorrelationInitializers>
+        <ReceiveMessageContent DeclaredMessageType="d:Order">
+          <p1:OutArgument x:TypeArguments="d:Order">
+            <mca:CSharpReference x:TypeArguments="d:Order">order</mca:CSharpReference>
+          </p1:OutArgument>
+        </ReceiveMessageContent>
+      </Receive>
+      <p1:Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+        <p1:Assign.To>
+          <p1:OutArgument x:TypeArguments="x:Int32">
+            <mca:CSharpReference x:TypeArguments="x:Int32">order.Id</mca:CSharpReference>
+          </p1:OutArgument>
+        </p1:Assign.To>
+        <p1:Assign.Value>
+          <p1:InArgument x:TypeArguments="x:Int32">
+            <mca:CSharpValue x:TypeArguments="x:Int32">new Random().Next(1000, 2000)</mca:CSharpValue>
+          </p1:InArgument>
+        </p1:Assign.Value>
+      </p1:Assign>
+      <p1:Assign DisplayName="SetStatusToOrdered" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <p1:Assign.To>
+          <p1:OutArgument x:TypeArguments="de:OrderStatus">
+            <mca:CSharpReference x:TypeArguments="de:OrderStatus">order.Status</mca:CSharpReference>
+          </p1:OutArgument>
+        </p1:Assign.To>
+        <p1:Assign.Value>
+          <p1:InArgument x:TypeArguments="de:OrderStatus">
+            <mca:CSharpValue x:TypeArguments="de:OrderStatus">Data.Enum.OrderStatus.Ordered</mca:CSharpValue>
+          </p1:InArgument>
+        </p1:Assign.Value>
+      </p1:Assign>
+      <SendReply Request="{x:Reference __ReferenceID0}" DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_1">
+        <SendMessageContent>
+          <p1:InArgument x:TypeArguments="d:Order">
+            <mca:CSharpValue x:TypeArguments="d:Order">order</mca:CSharpValue>
+          </p1:InArgument>
+        </SendMessageContent>
+      </SendReply>
+    </p1:Sequence>
+    <p1:Sequence DisplayName="ApproveOrder" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <p1:Sequence.Variables>
+        <x:Reference>__ReferenceID2</x:Reference>
+        <p1:Variable x:TypeArguments="x:Boolean" Name="approve" />
+      </p1:Sequence.Variables>
+      <Receive x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="Receive_2" OperationName="ApproveOrder" ServiceContractName="p:IService">
+        <Receive.CorrelationInitializers>
+          <RequestReplyCorrelationInitializer>
+            <RequestReplyCorrelationInitializer.CorrelationHandle>
+              <p1:InArgument x:TypeArguments="CorrelationHandle">
+                <p1:VariableValue x:TypeArguments="CorrelationHandle">
+                  <p1:VariableValue.Variable>
+                    <p1:Variable x:TypeArguments="CorrelationHandle" x:Name="__ReferenceID2" Name="__handle1" />
+                  </p1:VariableValue.Variable>
+                </p1:VariableValue>
+              </p1:InArgument>
+            </RequestReplyCorrelationInitializer.CorrelationHandle>
+          </RequestReplyCorrelationInitializer>
+        </Receive.CorrelationInitializers>
+        <ReceiveMessageContent DeclaredMessageType="x:Boolean">
+          <p1:OutArgument x:TypeArguments="x:Boolean">
+            <mca:CSharpReference x:TypeArguments="x:Boolean">approve</mca:CSharpReference>
+          </p1:OutArgument>
+        </ReceiveMessageContent>
+      </Receive>
+      <p1:If sap2010:WorkflowViewState.IdRef="If_1">
+        <p1:If.Condition>
+          <p1:InArgument x:TypeArguments="x:Boolean">
+            <mca:CSharpValue x:TypeArguments="x:Boolean">approve == true</mca:CSharpValue>
+          </p1:InArgument>
+        </p1:If.Condition>
+        <p1:If.Then>
+          <p1:Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+            <p1:Assign.To>
+              <p1:OutArgument x:TypeArguments="de:OrderStatus">
+                <mca:CSharpReference x:TypeArguments="de:OrderStatus">order.Status</mca:CSharpReference>
+              </p1:OutArgument>
+            </p1:Assign.To>
+            <p1:Assign.Value>
+              <p1:InArgument x:TypeArguments="de:OrderStatus">
+                <mca:CSharpValue x:TypeArguments="de:OrderStatus">Data.Enum.OrderStatus.Approved</mca:CSharpValue>
+              </p1:InArgument>
+            </p1:Assign.Value>
+          </p1:Assign>
+        </p1:If.Then>
+        <p1:If.Else>
+          <p1:Assign sap2010:WorkflowViewState.IdRef="Assign_4">
+            <p1:Assign.To>
+              <p1:OutArgument x:TypeArguments="de:OrderStatus">
+                <mca:CSharpReference x:TypeArguments="de:OrderStatus">order.Status</mca:CSharpReference>
+              </p1:OutArgument>
+            </p1:Assign.To>
+            <p1:Assign.Value>
+              <p1:InArgument x:TypeArguments="de:OrderStatus">
+                <mca:CSharpValue x:TypeArguments="de:OrderStatus">Data.Enum.OrderStatus.Declined</mca:CSharpValue>
+              </p1:InArgument>
+            </p1:Assign.Value>
+          </p1:Assign>
+        </p1:If.Else>
+      </p1:If>
+      <SendReply Request="{x:Reference __ReferenceID1}" DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_2">
+        <SendMessageContent>
+          <p1:InArgument x:TypeArguments="d:Order">
+            <mca:CSharpValue x:TypeArguments="d:Order">order</mca:CSharpValue>
+          </p1:InArgument>
+        </SendMessageContent>
+      </SendReply>
+    </p1:Sequence>
+    <sads:DebugSymbol.Symbol>d0dFOlxHaXRcQ1NoYXJwLVBvcnRmb2xpb1xDU2hhcnBQb3J0Zm9saW9cT3JkZXJTZXJ2aWNlXE9yZGVyUHJvZHVjdC54YW1seBsPA7gBEQEBPgVyEwEucwW2ARMBAj8HUhEBQ1MHXhMBPF8HahMBNWsHcRMBL3gHiwERASeMAQeuAQ8BC68BB7UBEwEDTw1PVwFFRBFIJAFEWw1bZwFAVg1WWgE9Zw1nbgE5Yg1iZQE2bg1uTwEwiAENiAFbASl9EYEBJAEojwENjwFbAQyTAQueARcBHKEBC6wBFwERsgENsgFPAQSbARGbAXMBIpYBEZYBaQEdqQERqQFzARekARGkAWkBEg==</sads:DebugSymbol.Symbol>
+  </p1:Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Receive_1" sap:VirtualizedContainerService.HintSize="255,86" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="255,62" />
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="255,62" />
+      <sap2010:ViewStateData Id="SendReply_1" sap:VirtualizedContainerService.HintSize="255,86" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="531,540">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Receive_2" sap:VirtualizedContainerService.HintSize="509,86" />
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="509,212" />
+      <sap2010:ViewStateData Id="SendReply_2" sap:VirtualizedContainerService.HintSize="509,86" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="531,588">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="553,1292">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WorkflowService_1" sap:VirtualizedContainerService.HintSize="329,1110" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</WorkflowService>
