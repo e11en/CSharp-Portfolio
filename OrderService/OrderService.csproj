@@ -95,8 +95,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Compile Include="GenericTrackingBehavior.cs" />
-    <Compile Include="GenericTrackingExtensionElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -44,7 +44,7 @@
     <Compile Include="Customer.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Enum\OrderStatus.cs" />
-    <Compile Include="Interface\IPerson.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="ManagerResponse.cs" />
     <Compile Include="Order.cs" />

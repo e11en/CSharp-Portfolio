@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using Data;
-using WorkflowClient.OrderProductServiceReference;
 
 namespace WorkflowClient
 {
     class Program
     {
+        /// <summary>
+        /// Execute the Workflow console client application.
+        /// The OrderProduct workflow is started.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Console.WriteLine("== OrderProduct Workflow ==");
@@ -22,6 +22,10 @@ namespace WorkflowClient
             }
         }
 
+        /// <summary>
+        /// Run the application.
+        /// </summary>
+        /// <returns></returns>
         private static bool Run()
         {
             Console.WriteLine();
@@ -42,6 +46,9 @@ namespace WorkflowClient
             }
         }
 
+        /// <summary>
+        /// Start the workflow for a new order.
+        /// </summary>
         private static void NewOrder()
         {
             var customer = GetCustomer();
@@ -61,6 +68,9 @@ namespace WorkflowClient
             }
         }
 
+        /// <summary>
+        /// Continue the workflow of an order.
+        /// </summary>
         private static void ApproveOrder()
         {
             Console.WriteLine("Enter orderId:");
@@ -80,6 +90,10 @@ namespace WorkflowClient
             }
         }
 
+        /// <summary>
+        /// Collect user input to create a new customer object.
+        /// </summary>
+        /// <returns></returns>
         private static Customer GetCustomer()
         {
             var customer = new Customer
@@ -94,6 +108,10 @@ namespace WorkflowClient
             return customer;
         }
 
+        /// <summary>
+        /// Get a list with dummy products.
+        /// </summary>
+        /// <returns></returns>
         private static IEnumerable<Product> GetProducts()
         {
             var products = new List<Product>
