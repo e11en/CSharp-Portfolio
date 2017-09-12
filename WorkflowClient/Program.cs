@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Data;
 
-namespace WorkflowClient
+namespace WorkflowConsoleClient
 {
     class Program
     {

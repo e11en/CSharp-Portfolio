@@ -11,14 +11,23 @@
   </xs:complexType>
   <xs:element name="Order" nillable="true" type="tns:Order" />
   <xs:complexType name="Customer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="Person">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
-      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:element name="Person" nillable="true" type="tns:Person" />
   <xs:complexType name="Address">
     <xs:sequence>
       <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
@@ -62,11 +71,13 @@
   </xs:complexType>
   <xs:element name="Manager" nillable="true" type="tns:Manager" />
   <xs:complexType name="Employee">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Manager" nillable="true" type="tns:Manager" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Manager" nillable="true" type="tns:Manager" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="Employee" nillable="true" type="tns:Employee" />
   <xs:complexType name="ArrayOfEmployee">

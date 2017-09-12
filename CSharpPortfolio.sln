@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Layer", "Data Layer", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{B80774F1-0193-4E11-9559-1A00B7704542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkflowClient", "WorkflowClient\WorkflowClient.csproj", "{FF82FD44-1D0A-47C3-9CB7-3DE5C5D9F628}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkflowConsoleClient", "WorkflowClient\WorkflowConsoleClient.csproj", "{FF82FD44-1D0A-47C3-9CB7-3DE5C5D9F628}"
 	ProjectSection(ProjectDependencies) = postProject
 		{FD0B5973-800D-4949-9F78-801E40054FAE} = {FD0B5973-800D-4949-9F78-801E40054FAE}
 	EndProjectSection

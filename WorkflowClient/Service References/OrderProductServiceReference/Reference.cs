@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WorkflowClient.OrderProductServiceReference {
+namespace WorkflowConsoleClient.OrderProductServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -16,18 +16,18 @@ namespace WorkflowClient.OrderProductServiceReference {
     public interface IService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SubmitOrder", ReplyAction="http://tempuri.org/IService/SubmitOrderResponse")]
-        WorkflowClient.OrderProductServiceReference.SubmitOrderResponse SubmitOrder(WorkflowClient.OrderProductServiceReference.SubmitOrderRequest request);
+        WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderResponse SubmitOrder(WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SubmitOrder", ReplyAction="http://tempuri.org/IService/SubmitOrderResponse")]
-        System.Threading.Tasks.Task<WorkflowClient.OrderProductServiceReference.SubmitOrderResponse> SubmitOrderAsync(WorkflowClient.OrderProductServiceReference.SubmitOrderRequest request);
+        System.Threading.Tasks.Task<WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderResponse> SubmitOrderAsync(WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderRequest request);
         
         // CODEGEN: Generating message contract since the operation ApproveOrder is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ApproveOrder", ReplyAction="http://tempuri.org/IService/ApproveOrderResponse")]
-        WorkflowClient.OrderProductServiceReference.ApproveOrderResponse ApproveOrder(WorkflowClient.OrderProductServiceReference.ApproveOrderRequest request);
+        WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderResponse ApproveOrder(WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ApproveOrder", ReplyAction="http://tempuri.org/IService/ApproveOrderResponse")]
-        System.Threading.Tasks.Task<WorkflowClient.OrderProductServiceReference.ApproveOrderResponse> ApproveOrderAsync(WorkflowClient.OrderProductServiceReference.ApproveOrderRequest request);
+        System.Threading.Tasks.Task<WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderResponse> ApproveOrderAsync(WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -97,12 +97,12 @@ namespace WorkflowClient.OrderProductServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceChannel : WorkflowClient.OrderProductServiceReference.IService, System.ServiceModel.IClientChannel {
+    public interface IServiceChannel : WorkflowConsoleClient.OrderProductServiceReference.IService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceClient : System.ServiceModel.ClientBase<WorkflowClient.OrderProductServiceReference.IService>, WorkflowClient.OrderProductServiceReference.IService {
+    public partial class ServiceClient : System.ServiceModel.ClientBase<WorkflowConsoleClient.OrderProductServiceReference.IService>, WorkflowConsoleClient.OrderProductServiceReference.IService {
         
         public ServiceClient() {
         }
@@ -124,42 +124,42 @@ namespace WorkflowClient.OrderProductServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WorkflowClient.OrderProductServiceReference.SubmitOrderResponse WorkflowClient.OrderProductServiceReference.IService.SubmitOrder(WorkflowClient.OrderProductServiceReference.SubmitOrderRequest request) {
+        WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderResponse WorkflowConsoleClient.OrderProductServiceReference.IService.SubmitOrder(WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderRequest request) {
             return base.Channel.SubmitOrder(request);
         }
         
         public void SubmitOrder(ref Data.Order Order) {
-            WorkflowClient.OrderProductServiceReference.SubmitOrderRequest inValue = new WorkflowClient.OrderProductServiceReference.SubmitOrderRequest();
+            WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderRequest inValue = new WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderRequest();
             inValue.Order = Order;
-            WorkflowClient.OrderProductServiceReference.SubmitOrderResponse retVal = ((WorkflowClient.OrderProductServiceReference.IService)(this)).SubmitOrder(inValue);
+            WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderResponse retVal = ((WorkflowConsoleClient.OrderProductServiceReference.IService)(this)).SubmitOrder(inValue);
             Order = retVal.Order;
         }
         
-        public System.Threading.Tasks.Task<WorkflowClient.OrderProductServiceReference.SubmitOrderResponse> SubmitOrderAsync(WorkflowClient.OrderProductServiceReference.SubmitOrderRequest request) {
+        public System.Threading.Tasks.Task<WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderResponse> SubmitOrderAsync(WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderRequest request) {
             return base.Channel.SubmitOrderAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WorkflowClient.OrderProductServiceReference.ApproveOrderResponse WorkflowClient.OrderProductServiceReference.IService.ApproveOrder(WorkflowClient.OrderProductServiceReference.ApproveOrderRequest request) {
+        WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderResponse WorkflowConsoleClient.OrderProductServiceReference.IService.ApproveOrder(WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderRequest request) {
             return base.Channel.ApproveOrder(request);
         }
         
         public Data.Order ApproveOrder(Data.ManagerResponse ManagerResponse) {
-            WorkflowClient.OrderProductServiceReference.ApproveOrderRequest inValue = new WorkflowClient.OrderProductServiceReference.ApproveOrderRequest();
+            WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderRequest inValue = new WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderRequest();
             inValue.ManagerResponse = ManagerResponse;
-            WorkflowClient.OrderProductServiceReference.ApproveOrderResponse retVal = ((WorkflowClient.OrderProductServiceReference.IService)(this)).ApproveOrder(inValue);
+            WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderResponse retVal = ((WorkflowConsoleClient.OrderProductServiceReference.IService)(this)).ApproveOrder(inValue);
             return retVal.Order;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WorkflowClient.OrderProductServiceReference.ApproveOrderResponse> WorkflowClient.OrderProductServiceReference.IService.ApproveOrderAsync(WorkflowClient.OrderProductServiceReference.ApproveOrderRequest request) {
+        System.Threading.Tasks.Task<WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderResponse> WorkflowConsoleClient.OrderProductServiceReference.IService.ApproveOrderAsync(WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderRequest request) {
             return base.Channel.ApproveOrderAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WorkflowClient.OrderProductServiceReference.ApproveOrderResponse> ApproveOrderAsync(Data.ManagerResponse ManagerResponse) {
-            WorkflowClient.OrderProductServiceReference.ApproveOrderRequest inValue = new WorkflowClient.OrderProductServiceReference.ApproveOrderRequest();
+        public System.Threading.Tasks.Task<WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderResponse> ApproveOrderAsync(Data.ManagerResponse ManagerResponse) {
+            WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderRequest inValue = new WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderRequest();
             inValue.ManagerResponse = ManagerResponse;
-            return ((WorkflowClient.OrderProductServiceReference.IService)(this)).ApproveOrderAsync(inValue);
+            return ((WorkflowConsoleClient.OrderProductServiceReference.IService)(this)).ApproveOrderAsync(inValue);
         }
     }
 }
