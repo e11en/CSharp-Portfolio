@@ -47,58 +47,16 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\OrderProductServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Properties\DataSources\Data.Order.datasource" />
-    <None Include="Service References\OrderProductServiceReference\OrderProduct.wsdl" />
-    <None Include="Service References\OrderProductServiceReference\OrderProduct.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\OrderProductServiceReference\OrderProduct1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\OrderProductServiceReference\OrderProduct2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\OrderProductServiceReference\WorkflowConsoleClient.OrderProductServiceReference.ApproveOrderResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\OrderProductServiceReference\WorkflowConsoleClient.OrderProductServiceReference.SubmitOrderResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{b80774f1-0193-4e11-9559-1a00b7704542}</Project>
-      <Name>Data</Name>
+    <ProjectReference Include="..\WorkflowWorker\WorkflowWorker.csproj">
+      <Project>{936fb04b-bd5f-4a24-a572-b688c996e074}</Project>
+      <Name>WorkflowWorker</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\OrderProductServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\OrderProductServiceReference\OrderProduct.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\OrderProductServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\OrderProductServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\OrderProductServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

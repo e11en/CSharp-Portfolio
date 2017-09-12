@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using Data;
+using WorkflowWorker;
+using WorkflowWorker.OrderProductServiceReference;
 
 namespace WorkflowConsoleClient
 {
@@ -52,20 +52,17 @@ namespace WorkflowConsoleClient
         private static void NewOrder()
         {
             var customer = GetCustomer();
-            var products = GetProducts();
+            var products = OrderProductWorkflow.GetDummyProducts();
             var order = new Order
             {
                 Customer = customer,
                 Products = products
             };
 
-            using (var client = new OrderProductServiceReference.ServiceClient())
-            {
-                client.SubmitOrder(ref order);
-                Console.WriteLine("========================================================");
-                Console.WriteLine($"Order {order.Id} is {order.Status}");
-                Console.WriteLine("========================================================");
-            }
+            OrderProductWorkflow.RunSubmitOrder(ref order);
+            Console.WriteLine("========================================================");
+            Console.WriteLine($"Order {order.Id} is {order.Status}");
+            Console.WriteLine("========================================================");
         }
 
         /// <summary>
@@ -76,18 +73,15 @@ namespace WorkflowConsoleClient
             Console.WriteLine("Enter orderId:");
             var orderId = Console.ReadLine();
 
-            using (var client = new OrderProductServiceReference.ServiceClient())
+            var managerResponse = new ManagerResponse
             {
-                var managerResponse = new ManagerResponse
-                {
-                    ItemIdentifier = Int16.Parse(orderId),
-                    Approved = true
-                };
-                var order = client.ApproveOrder(managerResponse);
-                Console.WriteLine("========================================================");
-                Console.WriteLine($"Order {order.Id} of customer {order.Customer.Name} is {order.Status}");
-                Console.WriteLine("========================================================");
-            }
+                ItemIdentifier = short.Parse(orderId),
+                Approved = true
+            };
+            var order = OrderProductWorkflow.RunApproveOrder(managerResponse);
+            Console.WriteLine("========================================================");
+            Console.WriteLine($"Order {order.Id} of customer {order.Customer.Name} is {order.Status}");
+            Console.WriteLine("========================================================");
         }
 
         /// <summary>
@@ -106,38 +100,6 @@ namespace WorkflowConsoleClient
             customer.Address.City = Console.ReadLine();
 
             return customer;
-        }
-
-        /// <summary>
-        /// Get a list with dummy products.
-        /// </summary>
-        /// <returns></returns>
-        private static IEnumerable<Product> GetProducts()
-        {
-            var products = new List<Product>
-            {
-                new Product
-                {
-                    Name = "Paper cup",
-                    SKU = "PC1234",
-                    Description = "Medium sized paper cup."
-                },
-                new Product
-                {
-                    Name = "Plastic Plate",
-                    SKU = "PP5678",
-                    Description = "Round white plastic plate."
-                },
-                new Product
-                {
-                    Name = "Balloon",
-                    SKU = "BA1234",
-                    Description = "Red plain balloon."
-                }
-            };
-
-
-            return products;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace WorkflowWorker
         /// Get a list with dummy products.
         /// </summary>
         /// <returns></returns>
-        private static IEnumerable<Product> GetDummyProducts()
+        public static Product[] GetDummyProducts()
         {
             var products = new List<Product>
             {
@@ -58,7 +58,7 @@ namespace WorkflowWorker
                 }
             };
 
-            return products;
+            return products.ToArray();
         }
     }
 }
